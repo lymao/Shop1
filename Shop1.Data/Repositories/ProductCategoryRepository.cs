@@ -1,4 +1,4 @@
-﻿using Shop1.Data.Infratructure;
+﻿using Shop1.Data.Infrastructure;
 using Shop1.Model.Models;
 using System.Collections.Generic;
 using System.Linq;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Shop1.Data.Infratructure
+namespace Shop1.Data.Infrastructure
 {
     public interface IRepository<T> where T : class
     {
