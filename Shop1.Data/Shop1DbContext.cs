@@ -1,4 +1,5 @@
-﻿using Shop1.Model.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Shop1.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Shop1.Data
 {
-    public class Shop1DbContext:DbContext
+    public class Shop1DbContext: IdentityDbContext<ApplicationUser>
     {
         public Shop1DbContext():base("Shop1Connection")
         {
@@ -43,7 +44,8 @@ namespace Shop1.Data
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            
+            builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }

@@ -4,9 +4,7 @@ using Shop1.Service;
 using Shop1.Web.Infrastructure.Core;
 using Shop1.Web.Infrastructure.Extentions;
 using Shop1.Web.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -16,11 +14,13 @@ namespace Shop1.Web.Api
     [RoutePrefix("api/postcategory")]
     public class PostCategoryController : ApiControllerBase
     {
-        IPostCategoryService _postCategoryService;
+        private IPostCategoryService _postCategoryService;
+
         public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) : base(errorService)
         {
             this._postCategoryService = postCategoryService;
         }
+
         [Route("getall")]
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
@@ -33,10 +33,9 @@ namespace Shop1.Web.Api
 
                 return response;
             });
-
         }
-        [Route("add")]
 
+        [Route("add")]
         public HttpResponseMessage Post(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
@@ -56,8 +55,8 @@ namespace Shop1.Web.Api
                 }
                 return response;
             });
-
         }
+
         [Route("update")]
         public HttpResponseMessage Put(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
@@ -78,8 +77,8 @@ namespace Shop1.Web.Api
                 }
                 return response;
             });
-
         }
+
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -97,7 +96,6 @@ namespace Shop1.Web.Api
                 }
                 return response;
             });
-
         }
     }
 }
