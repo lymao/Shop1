@@ -226,8 +226,13 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\components\" />
+    <Folder Include="app\shared\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\admin\" />
+    <Folder Include="Assets\admin\css\" />
+    <Folder Include="Assets\admin\img\" />
+    <Folder Include="Assets\admin\js\" />
+    <Folder Include="Assets\admin\libs\" />
     <Folder Include="Assets\client\" />
     <Folder Include="Scripts\spa\" />
   </ItemGroup>
