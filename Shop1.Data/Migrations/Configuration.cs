@@ -19,6 +19,7 @@
         protected override void Seed(Shop1.Data.Shop1DbContext context)
         {
             CreateProductCategorySample(context);
+            CreateSlide(context);
             //  This method will be called after migrating to the latest version.
 
             //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new Shop1DbContext()));
@@ -47,7 +48,7 @@
 
             //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
         }
-        private void CreateProductCategorySample(Shop1.Data.Shop1DbContext context)
+        private void CreateProductCategorySample(Shop1DbContext context)
         {
             if (context.ProductCategories.Count() == 0)
             {
@@ -59,6 +60,40 @@
                    new ProductCategory() { Name="Mỹ phẩm",Alias="my-pham",Status=true }
             };
                 context.ProductCategories.AddRange(listProductCategory);
+                context.SaveChanges();
+            }
+        }
+        private void CreateSlide(Shop1DbContext context)
+        {
+            if(context.Slides.Count() == 0)
+            {
+                List<Slide> listSlide = new List<Slide>()
+                {
+                    new Slide() {
+                        Name ="Slide 1",
+                        DisplayOrder =1,
+                        Status =true,
+                        Url ="#",
+                        Image ="/Assets/client/images/bag.jpg",
+                        Content =@"	<h2>FLAT 50% 0FF</h2>
+                                <label>FOR ALL PURCHASE <b>VALUE</b></label>
+                                <p>Lorem ipsum dolor sit amet, consectetur 
+                            adipisicing elit, sed do eiusmod tempor incididunt ut labore et </ p >
+                        <span class=""on-get"">GET NOW</span>" },
+                    new Slide() {
+                        Name ="Slide 2",
+                        DisplayOrder =2,
+                        Status =true,
+                        Url ="#",
+                        Image ="/Assets/client/images/bag1.jpg",
+                    Content=@"<h2>FLAT 50% 0FF</h2>
+                                <label>FOR ALL PURCHASE <b>VALUE</b></label>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et </ p >
+
+                                <span class=""on-get"">GET NOW</span>"},
+                };
+                context.Slides.AddRange(listSlide);
                 context.SaveChanges();
             }
         }
