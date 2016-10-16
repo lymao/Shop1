@@ -7,7 +7,8 @@ namespace Shop1.Web.Infrastructure.Core
 {
     public class PaginationSet<T>
     {
-        public int Page { get; set; }
+        public int Page { set; get; }
+
         public int Count
         {
             get
@@ -15,8 +16,10 @@ namespace Shop1.Web.Infrastructure.Core
                 return (Items != null) ? Items.Count() : 0;
             }
         }
-        public int TotalPages { get; set; }
-        public int TotalCount { get; set; }
-        public IEnumerable<T> Items { get; set; }
+
+        public int TotalPages { set; get; }
+        public int TotalCount { set; get; }
+        public int MaxPage { set; get; }
+        public IEnumerable<T> Items { set; get; }
     }
 }
