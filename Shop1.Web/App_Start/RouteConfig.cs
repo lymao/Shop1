@@ -17,11 +17,11 @@ namespace Shop1.Web
             );
 
             routes.MapRoute(
-      name: "Search",
-      url: "tim-kiem.html",
-      defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
-      namespaces: new string[] { "Shop1.Web.Controllers" }
-  );
+              name: "Search",
+              url: "tim-kiem.html",
+              defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
+              namespaces: new string[] { "Shop1.Web.Controllers" }
+          );
 
             routes.MapRoute(
          name: "Login",
