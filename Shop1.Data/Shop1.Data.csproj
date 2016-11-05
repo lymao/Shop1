@@ -84,10 +84,15 @@
     <Compile Include="Migrations\201610231535287_ContactDetail.Designer.cs">
       <DependentUpon>201610231535287_ContactDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611011539299_Feedback.cs" />
+    <Compile Include="Migrations\201611011539299_Feedback.Designer.cs">
+      <DependentUpon>201611011539299_Feedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ContactDetailRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
     <Compile Include="Repositories\MenuGroupRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
@@ -136,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610231535287_ContactDetail.resx">
       <DependentUpon>201610231535287_ContactDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611011539299_Feedback.resx">
+      <DependentUpon>201611011539299_Feedback.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
