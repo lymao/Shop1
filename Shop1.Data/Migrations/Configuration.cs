@@ -1,11 +1,7 @@
 ﻿namespace Shop1.Data.Migrations
 {
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
     using Model.Models;
-    using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Validation;
     using System.Diagnostics;
@@ -52,6 +48,7 @@
 
             //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
         }
+
         private void CreateProductCategorySample(Shop1DbContext context)
         {
             if (context.ProductCategories.Count() == 0)
@@ -67,9 +64,10 @@
                 context.SaveChanges();
             }
         }
+
         private void CreateSlide(Shop1DbContext context)
         {
-            if(context.Slides.Count() == 0)
+            if (context.Slides.Count() == 0)
             {
                 List<Slide> listSlide = new List<Slide>()
                 {
@@ -81,7 +79,7 @@
                         Image ="/Assets/client/images/bag.jpg",
                         Content =@"	<h2>FLAT 50% 0FF</h2>
                                 <label>FOR ALL PURCHASE <b>VALUE</b></label>
-                                <p>Lorem ipsum dolor sit amet, consectetur 
+                                <p>Lorem ipsum dolor sit amet, consectetur
                             adipisicing elit, sed do eiusmod tempor incididunt ut labore et </ p >
                         <span class=""on-get"">GET NOW</span>" },
                     new Slide() {
@@ -114,7 +112,6 @@
                         Alias = "gioi-thieu",
                         Content = @"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium ",
                         Status = true
-
                     };
                     context.Pages.Add(page);
                     context.SaveChanges();
@@ -130,9 +127,9 @@
                         }
                     }
                 }
-
             }
         }
+
         private void CreateContactDetail(Shop1DbContext context)
         {
             if (context.ContactDetails.Count() == 0)
@@ -150,7 +147,6 @@
                         Website = "http://tedu.com.vn",
                         Other = "",
                         Status = true
-
                     };
                     context.ContactDetails.Add(contactDetail);
                     context.SaveChanges();
@@ -166,7 +162,6 @@
                         }
                     }
                 }
-
             }
         }
     }

@@ -26,12 +26,21 @@ namespace Shop1.Web
           );
 
             routes.MapRoute(
-         name: "Login",
-         url: "dang-nhap.html",
-         defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
-         namespaces: new string[] { "Shop1.Web.Controllers" }
+             name: "Login",
+             url: "dang-nhap.html",
+             defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
+             namespaces: new string[] { "Shop1.Web.Controllers" }
 
-     );
+            );
+
+            routes.MapRoute(
+            name: "Register",
+            url: "dang-ky.html",
+            defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional },
+            namespaces: new string[] { "Shop1.Web.Controllers" }
+
+            );
+
             routes.MapRoute(
             name: "Page",
             url: "trang/{alias}.html",

@@ -1,8 +1,7 @@
 namespace Shop1.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AddMoreQuantity : DbMigration
     {
         public override void Up()
@@ -10,7 +9,7 @@ namespace Shop1.Data.Migrations
             AddColumn("dbo.Products", "Quantity", c => c.Int(nullable: false));
             Sql("update dbo.Products set Quantity = 0");
         }
-        
+
         public override void Down()
         {
             DropColumn("dbo.Products", "Quantity");

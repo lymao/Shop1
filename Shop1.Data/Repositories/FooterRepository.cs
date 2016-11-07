@@ -7,7 +7,7 @@ namespace Shop1.Data.Repositories
     {
     }
 
-    public class FooterRepository : RepositoryBase<Footer>,IFooterRepository
+    public class FooterRepository : RepositoryBase<Footer>, IFooterRepository
     {
         public FooterRepository(IDbFactory dbFactory) : base(dbFactory)
         {
