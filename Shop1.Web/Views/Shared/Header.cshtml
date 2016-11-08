@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNet.Identity;
+
 <div class="header">
     <div class="top-header">
         <div class="container">
@@ -12,9 +13,11 @@
                     <li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
                 </ul>
                 <ul class="support">
+                    <li><a href="#"><label> </label></a></li>
                     <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
                 </ul>
                 <ul class="support">
+                    <li><a href="#"><label> </label></a></li>
                     <li><a href="/lien-he.html">Liên hệ</a></li>
                 </ul>
                 <div class="clearfix"> </div>
@@ -57,11 +60,25 @@
                 <div class="clearfix"> </div>
             </div>
             <div class="header-bottom-right">
-                <div class="account"><a href="login.html"><span> </span>YOUR ACCOUNT</a></div>
-                <ul class="login">
-                    <li><a href="/dang-nhap.html"><span> </span>Đăng nhập</a></li> |
-                    <li><a href="/dang-ky.html">Đăng ký</a></li>
-                </ul>
+                @using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { @id = "frmLogout" }))
+                {
+                    if (Request.IsAuthenticated)
+                    {
+                        @Html.AntiForgeryToken()
+                        <ul class="login">
+                            <li><a href="/tai-khoan.html"><span> </span>Xin chào: @User.Identity.GetUserName()</a></li> |
+                            <li><a href="#" id="btnLogout">Thoát</a></li>
+                        </ul>
+
+                    }
+                    else
+                    {
+                        <ul class="login">
+                            <li><a href="/dang-nhap.html"><span> </span>ĐĂNG NHẬP</a></li> |
+                            <li><a href="/dang-ky.html">ĐĂNG KÝ</a></li>
+                        </ul>
+                    }
+                }
                 <div class="cart"><a href="/gio-hang.html"><span> </span>Giỏ hàng</a></div>
                 <div class="clearfix"> </div>
             </div>
