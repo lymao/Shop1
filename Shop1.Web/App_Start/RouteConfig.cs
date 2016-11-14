@@ -38,7 +38,13 @@ namespace Shop1.Web
             url: "dang-ky.html",
             defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional },
             namespaces: new string[] { "Shop1.Web.Controllers" }
+            );
 
+            routes.MapRoute(
+            name: "Cart",
+            url: "gio-hang.html",
+            defaults: new { controller = "ShoppingCart", action = "Index", id = UrlParameter.Optional },
+            namespaces: new string[] { "Shop1.Web.Controllers" }
             );
 
             routes.MapRoute(
