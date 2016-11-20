@@ -48,6 +48,13 @@ namespace Shop1.Web
             );
 
             routes.MapRoute(
+            name: "Checkout",
+            url: "thanh-toan.html",
+            defaults: new { controller = "ShoppingCart", action = "CheckOut", alias = UrlParameter.Optional },
+            namespaces: new string[] { "Shop1.Web.Controllers" }
+            );
+
+            routes.MapRoute(
             name: "Page",
             url: "trang/{alias}.html",
             defaults: new { controller = "Page", action = "Index", alias = UrlParameter.Optional },
