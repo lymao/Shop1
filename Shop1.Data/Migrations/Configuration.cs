@@ -1,6 +1,9 @@
 ﻿namespace Shop1.Data.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Model.Models;
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Validation;
@@ -11,7 +14,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Shop1.Data.Shop1DbContext context)

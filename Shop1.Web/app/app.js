@@ -1,10 +1,18 @@
 ﻿/// <reference path="D:\C#\ItClass\AspNetApi_AngularJs\Projects\Git1\Shop1.Web\Assets/admin/libs/angular/angular.js" />
 
 (function () {
-    angular.module("shop1", ["shop1.products", "shop1.product_categories", "shop1.common"])
+    angular.module('shop1',
+        ['shop1.products',
+         'shop1.application_groups',
+         'shop1.product_categories',
+         'shop1.application_roles',
+         'shop1.application_users',
+         'shop1.common'])
         .config(config)
         .config(configAuthentication);
-    config.$inject = ["$stateProvider", "$urlRouterProvider"];
+
+    config.$inject = ['$stateProvider', '$urlRouterProvider'];
+
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('base', {
@@ -24,6 +32,7 @@
             });
         $urlRouterProvider.otherwise('/login');
     }
+
     function configAuthentication($httpProvider) {
         $httpProvider.interceptors.push(function ($q, $location) {
             return {
