@@ -1,9 +1,6 @@
 ﻿using Shop1.Model.Models;
 using Shop1.Web.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Shop1.Web.Infrastructure.Extentions
 {
@@ -96,6 +93,7 @@ namespace Shop1.Web.Infrastructure.Extentions
             product.Status = productVm.Status;
             product.Tags = productVm.Tags;
             product.Quantity = productVm.Quantity;
+            product.OriginalPrice = productVm.OriginalPrice;
         }
 
         public static void UpdateFeedback(this Feedback feedback, FeedbackViewModel feedbackVm)
@@ -110,11 +108,11 @@ namespace Shop1.Web.Infrastructure.Extentions
         public static void UpdateOrder(this Order order, OrderViewModel orderVm)
         {
             order.CustomerName = orderVm.CustomerName;
-            order.CustomerAddress = orderVm.CustomerAddress;
-            order.CustomerEmail = orderVm.CustomerEmail;
-            order.CustomerMobile = orderVm.CustomerMobile;
-            order.CustomerMessage = orderVm.CustomerMessage;
-            order.PaymentMethod = orderVm.PaymentMethod;
+            order.CustomerAddress = orderVm.CustomerName;
+            order.CustomerEmail = orderVm.CustomerName;
+            order.CustomerMobile = orderVm.CustomerName;
+            order.CustomerMessage = orderVm.CustomerName;
+            order.PaymentMethod = orderVm.CustomerName;
             order.CreatedDate = DateTime.Now;
             order.CreatedBy = orderVm.CreatedBy;
             order.Status = orderVm.Status;

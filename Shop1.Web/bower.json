@@ -19,7 +19,8 @@
     "mustache": "~2.3.0",
     "numeral": "~1.5.3",
     "jquery-validation": "~1.15.1",
-    "checklist-model": "~0.10.0"
+    "checklist-model": "~0.10.0",
+    "angular-chart.js": "~1.0.3"
   },
   "resolutions": {
     "angular": "^1.0.8"

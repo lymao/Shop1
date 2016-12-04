@@ -37,7 +37,6 @@ namespace Shop1.Service
                     orderDetail.OrderID = order.ID;
                     _orderDetailRepository.Add(orderDetail);
                 }
-                _unitOfWork.Commit();
                 return true;
             }
             catch (Exception ex)

@@ -15,8 +15,8 @@ namespace Shop1.Web.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        IProductService _productService;
-        IOrderService _orderService;
+        private IProductService _productService;
+        private IOrderService _orderService;
         private ApplicationUserManager _userManager;
 
         public ShoppingCartController(IOrderService orderService, IProductService productService, ApplicationUserManager userManager)
@@ -33,6 +33,7 @@ namespace Shop1.Web.Controllers
                 Session[CommonConstants.SessionCart] = new List<ShoppingCartViewModel>();
             return View();
         }
+
         public ActionResult CheckOut()
         {
             if (Session[CommonConstants.SessionCart] == null)
@@ -41,6 +42,7 @@ namespace Shop1.Web.Controllers
             }
             return View();
         }
+
         public JsonResult GetUser()
         {
             if (Request.IsAuthenticated)
@@ -74,19 +76,33 @@ namespace Shop1.Web.Controllers
 
             var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
             List<OrderDetail> orderDetails = new List<OrderDetail>();
+            bool isEnough = true;
             foreach (var item in cart)
             {
                 var detail = new OrderDetail();
                 detail.ProductID = item.ProductId;
-                detail.Quantitty = item.Quantity;
+                detail.Quantity = item.Quantity;
                 orderDetails.Add(detail);
+                isEnough = _productService.SellProduct(item.ProductId, item.Quantity);
+                break;
             }
-
-            _orderService.Create(orderNew, orderDetails);
-            return Json(new
+            if (isEnough)
             {
-                status = true
-            });
+                _orderService.Create(orderNew, orderDetails);
+                _productService.Save();
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = "Không đủ hàng."
+                });
+            }
         }
 
         public JsonResult GetAll()
@@ -105,9 +121,18 @@ namespace Shop1.Web.Controllers
         public JsonResult Add(int productId)
         {
             var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
+            var product = _productService.GetById(productId);
             if (cart == null)
             {
                 cart = new List<ShoppingCartViewModel>();
+            }
+            if (product.Quantity == 0)
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = "Sản phẩm này hiện đang hết hàng."
+                });
             }
             if (cart.Any(x => x.ProductId == productId))
             {
@@ -123,7 +148,6 @@ namespace Shop1.Web.Controllers
             {
                 ShoppingCartViewModel newItem = new ShoppingCartViewModel();
                 newItem.ProductId = productId;
-                var product = _productService.GetById(productId);
                 newItem.Product = Mapper.Map<Product, ProductViewModel>(product);
                 newItem.Quantity = 1;
                 cart.Add(newItem);
@@ -134,14 +158,15 @@ namespace Shop1.Web.Controllers
                 status = true
             });
         }
+
         [HttpPost]
         public JsonResult Update(string cartData)
         {
-            var cartViewModel = new JavaScriptSerializer().Deserialize<List < ShoppingCartViewModel >>(cartData);
+            var cartViewModel = new JavaScriptSerializer().Deserialize<List<ShoppingCartViewModel>>(cartData);
             var cartSession = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
-            foreach(var item in cartSession)
+            foreach (var item in cartSession)
             {
-                foreach(var jitem in cartViewModel)
+                foreach (var jitem in cartViewModel)
                 {
                     if (item.ProductId == jitem.ProductId)
                     {
@@ -154,6 +179,7 @@ namespace Shop1.Web.Controllers
                 status = true
             });
         }
+
         [HttpPost]
         public JsonResult DeleteItem(int productId)
         {
@@ -172,6 +198,7 @@ namespace Shop1.Web.Controllers
                 status = false
             });
         }
+
         [HttpPost]
         public JsonResult DeleteAll(string productId)
         {

@@ -38,6 +38,7 @@ namespace Shop1.Service
         IEnumerable<Product> GetListProductByTag(string tagId, int page, int pageSize, out int totalRow);
 
         void Save();
+        bool SellProduct(int productId, int quantity);
     }
 
     public class ProductService : IProductService
@@ -235,6 +236,15 @@ namespace Shop1.Service
         {
             var model = _productRepository.GetListProductByTag(tagId, page, pageSize, out totalRow);
             return model;
+        }
+
+        public bool SellProduct(int productId, int quantity)
+        {
+            var product = _productRepository.GetSingleById(productId);
+            if (product.Quantity < quantity)
+                return false;
+            product.Quantity -= quantity;
+            return true;
         }
     }
 }

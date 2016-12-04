@@ -92,13 +92,17 @@
     <Compile Include="Migrations\201611141608126_addCustomerId.Designer.cs">
       <DependentUpon>201611141608126_addCustomerId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611251457047_CapnhatCSDL.cs" />
-    <Compile Include="Migrations\201611251457047_CapnhatCSDL.Designer.cs">
-      <DependentUpon>201611251457047_CapnhatCSDL.cs</DependentUpon>
+    <Compile Include="Migrations\201611291710140_RenameIdentityAndAddGroupUser.cs" />
+    <Compile Include="Migrations\201611291710140_RenameIdentityAndAddGroupUser.Designer.cs">
+      <DependentUpon>201611291710140_RenameIdentityAndAddGroupUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611251556260_AddTableApplication.cs" />
-    <Compile Include="Migrations\201611251556260_AddTableApplication.Designer.cs">
-      <DependentUpon>201611251556260_AddTableApplication.cs</DependentUpon>
+    <Compile Include="Migrations\201612011656567_ChangeOrderDetail.cs" />
+    <Compile Include="Migrations\201612011656567_ChangeOrderDetail.Designer.cs">
+      <DependentUpon>201612011656567_ChangeOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612040258331_RevenuesStatisticSP.cs" />
+    <Compile Include="Migrations\201612040258331_RevenuesStatisticSP.Designer.cs">
+      <DependentUpon>201612040258331_RevenuesStatisticSP.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,11 +168,14 @@
     <EmbeddedResource Include="Migrations\201611141608126_addCustomerId.resx">
       <DependentUpon>201611141608126_addCustomerId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611251457047_CapnhatCSDL.resx">
-      <DependentUpon>201611251457047_CapnhatCSDL.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611291710140_RenameIdentityAndAddGroupUser.resx">
+      <DependentUpon>201611291710140_RenameIdentityAndAddGroupUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611251556260_AddTableApplication.resx">
-      <DependentUpon>201611251556260_AddTableApplication.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612011656567_ChangeOrderDetail.resx">
+      <DependentUpon>201612011656567_ChangeOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612040258331_RevenuesStatisticSP.resx">
+      <DependentUpon>201612040258331_RevenuesStatisticSP.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
