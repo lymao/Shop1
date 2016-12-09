@@ -1,9 +1,13 @@
 ﻿@model Shop1.Web.Infrastructure.Core.PaginationSet<Shop1.Web.Models.ProductViewModel>
 
 @{
-    ViewBag.Title = "Category";
-    Layout = "~/Views/Shared/Layouts.cshtml";
+
     var category = (Shop1.Web.Models.ProductCategoryViewModel)ViewBag.Category;
+    var pageIndex = Model.Page;
+    ViewBag.Title = pageIndex == 1 ? category.Name : category.Name + " - Trang " + pageIndex;
+    ViewBag.MetaKeyword = pageIndex == 1 ? category.MetaKeyword : category.MetaKeyword + " - Trang " + pageIndex;
+    ViewBag.MetaDescription = pageIndex == 1 ? category.MetaDescription : category.MetaDescription + " - Trang " + pageIndex;
+    Layout = "~/Views/Shared/Layouts.cshtml";
 }
 
 <h2>Category</h2>

@@ -1,6 +1,8 @@
 ﻿@model Shop1.Web.Models.ProductViewModel
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = Model.Name;
+    ViewBag.MetaKeyword = Model.MetaKeyword;
+    ViewBag.MetaDescription = Model.MetaDescription;
     Layout = "~/Views/Shared/Layouts.cshtml";
 }
 <link href="~/Assets/client/css/etalage.css" rel="stylesheet" />

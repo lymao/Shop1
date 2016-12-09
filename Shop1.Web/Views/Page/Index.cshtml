@@ -1,7 +1,9 @@
 ﻿@model Shop1.Web.Models.PageViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = @Model.Name;
+    ViewBag.MetaKeyword = @Model.Name;
+    ViewBag.MetaDescription = Model.Name;
     Layout = "~/Views/Shared/Layouts.cshtml";
 }
 
