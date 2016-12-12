@@ -5618,6 +5618,9 @@
     <Content Include="Assets\admin\libs\angular-chart.js\PULL_REQUEST_TEMPLATE.md" />
     <Content Include="Assets\admin\libs\angular-chart.js\README.md" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
